@@ -1,71 +1,188 @@
-index.html
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lami Kaon – Authentic Cebuano Meals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #FFF9F2;
+      color: #2C1810;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background: #fff;
+      border-bottom: 1px solid #F0E8DC;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #7A6055;
+    }
+
+    .nav-cta {
+      background: #C84B2F;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* ── HERO: THIS IS THE KEY PART ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* ← splits the screen in 2 equal halves */
+      min-height: 90vh;
+    }
+
+    .hero-text {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #FDE8DF;
+      color: #C84B2F;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      line-height: 1.15;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: #7A6055;
+      line-height: 1.7;
+      max-width: 440px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: #C84B2F;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      font-size: 15px;
+      color: #C84B2F;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* ── IMAGE SIDE ── */
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* ← fills the space without stretching */
+    }
+
+    /* Social proof badge floating over the image */
+    .badge {
+      position: absolute;
+      bottom: 32px;
+      left: 24px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .badge-text .b1 { font-weight: 500; font-size: 14px; }
+    .badge-text .b2 { font-size: 12px; color: #7A6055; }
+  </style>
+</head>
 <body>
 
-<div class="container">
+  <nav>
+    <div class="nav-brand">Lami Kaon</div>
+    <div class="nav-links">
+      <a href="#">Menu</a>
+      <a href="#">How It Works</a>
+      <a href="#">About</a>
+    </div>
+    <a href="#" class="nav-cta">Order Now</a>
+  </nav>
 
-    <h1>Authentic Cebuano Meals Delivered to You</h1>
+  <div class="hero">
 
-    <p>Enjoy real home-cooked flavors without cooking. Fresh, delicious, and ready to eat.</p>
+    <!-- LEFT: Text -->
+    <div class="hero-text">
+      <div class="tag">Fresh • Daily • Cebuano</div>
+      <h1>Authentic Cebuano Meals, Delivered to Your Door</h1>
+      <p>Craving real home-cooked flavors? Enjoy freshly prepared Cebuano dishes without the hassle of cooking.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Order Your Meal Now</button>
+        <button class="btn-secondary">See the menu →</button>
+      </div>
+    </div>
 
-    <img src="food-photo.png" alt="Cebuano food">
+    <!-- RIGHT: Image -->
+    <div class="hero-img">
+      <img src="food-photo.png" alt="Authentic Cebuano meal" />
+      <div class="badge">
+        <span style="font-size:22px">⭐</span>
+        <div class="badge-text">
+          <p class="b1">4.9 Rating</p>
+          <p class="b2">200+ happy customers</p>
+        </div>
+      </div>
+    </div>
 
-    <button>Order Now</button>
-
-</div>
-
-</body>
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.container {
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 12px;
-    margin: 20px 0;
-}
-
-button {
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    padding: 15px 25px;
-    font-size: 16px;
-    border-radius: 8px;
-}
-</style>
-
-
-    <h1>Authentic Cebuano Meals, Delivered to Your Door</h1>
-
-<p>Craving real home-cooked flavors? Enjoy freshly prepared Cebuano dishes without the hassle of cooking.</p>
-
-<button>Order Your Meal Now</button>
-
-<img src="food-photo.png" alt=style="width:100%; max-width:600px; border-radius:10px;">
-
-    <br><br>
-
-    <button>Get Started Now</button>
+  </div>
 
 </body>
 </html>
