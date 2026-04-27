@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Czkiervan's - Authentic Cebuano Meals Delivered</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ════════════════════════════════════════════════════════════════ */
+    /* RESET & VARIABLES */
+    /* ════════════════════════════════════════════════════════════════ */
+    :root {
+      --primary: #C84B2F;
+      --primary-dark: #A63E25;
+      --primary-light: #E8735A;
+      --accent: #FDE8DF;
+      --accent-dark: #F5D4C0;
+      --text-dark: #2C1810;
+      --text-muted: #7A6055;
+      --bg-light: #FFF9F2;
+      --border-light: #F0E8DC;
+      --white: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* NAVIGATION */
+    /* ════════════════════════════════════════════════════════════════ */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(200, 75, 47, 0.25);
+      cursor: pointer;
+      border: none;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(200, 75, 47, 0.35);
+    }
+
+    .nav-cta:active {
+      transform: translateY(0);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* HERO SECTION */
+    /* ════════════════════════════════════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      align-items: stretch;
+    }
+
+    .hero-text {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: slideInLeft 0.8s ease-out 0.1s backwards;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-dark);
+      animation: slideInLeft 0.8s ease-out 0.2s backwards;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 480px;
+      animation: slideInLeft 0.8s ease-out 0.3s backwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 12px;
+      animation: slideInLeft 0.8s ease-out 0.4s backwards;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(200, 75, 47, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200, 75, 47, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      background: transparent;
+      border: 2px solid var(--primary);
+      padding: 14px 28px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* IMAGE SIDE */
+    /* ════════════════════════════════════════════════════════════════ */
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      filter: brightness(1);
+    }
+
+    .hero-img:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* SOCIAL PROOF BADGE */
+    /* ════════════════════════════════════════════════════════════════ */
+    .badge {
+      position: absolute;
+      bottom: 40px;
+      left: 32px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(10px);
+      animation: slideInUp 0.8s ease-out 0.6s backwards;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .badge-emoji {
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .badge-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .badge-text .b1 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-dark);
+    }
+
+    .badge-text .b2 {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .badge:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* RESPONSIVE DESIGN */
+    /* ════════════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text {
+        padding: 60px 48px;
+      }
+
+      .hero-text h1 {
+        font-size: 44px;
+      }
+
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-text {
+        padding: 48px 24px;
+        gap: 20px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+        line-height: 1.2;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .badge {
+        bottom: 20px;
+        left: 16px;
+        font-size: 12px;
+      }
+
+      .badge-emoji {
+        font-size: 24px;
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* UTILITY CLASSES */
+    /* ════════════════════════════════════════════════════════════════ */
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+
+    /* Smooth transitions for all interactive elements */
+    button,
+    a {
+      transition: var(--transition);
+    }
+
+    /* Selection styling */
+    ::selection {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-light);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Focus states for accessibility */
+    button:focus,
+    a:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Czkiervan's</div>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#how">How It Works</a>
+      <a href="#about">About</a>
+    </div>
+    <button class="nav-cta">Order Now</button>
+  </nav>
+
+  <div class="hero">
+
+    <!-- LEFT: Text -->
+    <div class="hero-text">
+      <div class="tag">Fresh • Daily • Cebuano</div>
+      <h1>Authentic Cebuano Meals, Delivered to Your Door</h1>
+      <p>Craving real home-cooked flavors? Enjoy freshly prepared Cebuano dishes without the hassle of cooking. Quality ingredients, bold flavors, zero compromise.</p>
+      <div class="hero-actions">
+        <button class="btn-primary">Order Your Meal Now</button>
+        <button class="btn-secondary">See the menu →</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Image -->
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Authentic Cebuano meal" />
+      <div class="badge">
+        <div class="badge-emoji">⭐</div>
+        <div class="badge-text">
+          <p class="b1">4.9 Rating</p>
+          <p class="b2">200+ happy customers</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
