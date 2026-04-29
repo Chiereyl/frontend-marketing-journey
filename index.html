@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Czkiervan's import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { ShoppingCart, Menu, X, Plus, Minus } from 'lucide-react';
- 
+
 export default function FilipinoRestaurant() {
   const [currentPage, setCurrentPage] = useState('home');
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
- 
+
   const menuItems = [
     // Filipino Favorites (Rice Meals)
     { id: 1, name: 'Chicken Adobo w/ Rice', category: 'filipinoFavorites', price: 180, image: '🍲', desc: 'Classic chicken in vinegar sauce' },
@@ -34,7 +28,7 @@ export default function FilipinoRestaurant() {
     { id: 18, name: 'Fried Chicken Filipino Style w/ Rice', category: 'filipinoFavorites', price: 200, image: '🍗', desc: 'Crispy fried chicken' },
     { id: 19, name: 'Daing na Bangus w/ Rice', category: 'filipinoFavorites', price: 210, image: '🐟', desc: 'Milkfish in vinegar' },
     { id: 20, name: 'Lumpiang Shanghai w/ Rice', category: 'filipinoFavorites', price: 180, image: '🥟', desc: 'Spring rolls with meat' },
- 
+
     // Noodles & Soups
     { id: 21, name: 'Pancit Canton', category: 'noodles', price: 140, image: '🍜', desc: 'Stir-fried noodles' },
     { id: 22, name: 'Pancit Bihon', category: 'noodles', price: 130, image: '🍜', desc: 'Rice noodle dish' },
@@ -46,7 +40,7 @@ export default function FilipinoRestaurant() {
     { id: 28, name: 'Ramen (Chicken)', category: 'noodles', price: 160, image: '🍜', desc: 'Japanese-style noodles' },
     { id: 29, name: 'Ramen (Beef)', category: 'noodles', price: 170, image: '🍜', desc: 'Beef ramen' },
     { id: 30, name: 'Seafood Noodle Soup', category: 'noodles', price: 180, image: '🍜', desc: 'Mixed seafood noodles' },
- 
+
     // Western / Fast Food
     { id: 31, name: 'Classic Cheeseburger', category: 'western', price: 120, image: '🍔', desc: 'Juicy beef with cheese' },
     { id: 32, name: 'Double Beef Burger', category: 'western', price: 150, image: '🍔', desc: 'Two patties' },
@@ -58,7 +52,7 @@ export default function FilipinoRestaurant() {
     { id: 38, name: 'Clubhouse Sandwich', category: 'western', price: 130, image: '🥪', desc: 'Triple decker sandwich' },
     { id: 39, name: 'Tuna Sandwich', category: 'western', price: 110, image: '🥪', desc: 'Fresh tuna mix' },
     { id: 40, name: 'Grilled Chicken Wrap', category: 'western', price: 120, image: '🌯', desc: 'Wrapped grilled chicken' },
- 
+
     // Fried & Grilled Specials
     { id: 41, name: 'Fried Chicken (2 pcs)', category: 'friedGrilled', price: 160, image: '🍗', desc: 'Two pieces of crispy chicken' },
     { id: 42, name: 'Fried Chicken Bucket', category: 'friedGrilled', price: 480, image: '🍗', desc: '8 pieces chicken bucket' },
@@ -70,7 +64,7 @@ export default function FilipinoRestaurant() {
     { id: 48, name: 'Mixed Grill Platter', category: 'friedGrilled', price: 320, image: '🍢', desc: 'Mix of grilled meats' },
     { id: 49, name: 'Chicken Skewers', category: 'friedGrilled', price: 150, image: '🍢', desc: 'Grilled chicken skewers' },
     { id: 50, name: 'Pork Skewers', category: 'friedGrilled', price: 160, image: '🍢', desc: 'Grilled pork skewers' },
- 
+
     // Pasta & International
     { id: 51, name: 'Spaghetti Filipino Style', category: 'pasta', price: 150, image: '🍝', desc: 'Sweet spaghetti sauce' },
     { id: 52, name: 'Carbonara', category: 'pasta', price: 170, image: '🍝', desc: 'Creamy bacon pasta' },
@@ -82,7 +76,7 @@ export default function FilipinoRestaurant() {
     { id: 58, name: 'Pesto Pasta', category: 'pasta', price: 160, image: '🍝', desc: 'Green pesto pasta' },
     { id: 59, name: 'Seafood Pasta', category: 'pasta', price: 200, image: '🍝', desc: 'Mixed seafood pasta' },
     { id: 60, name: 'Creamy Chicken Pasta', category: 'pasta', price: 170, image: '🍝', desc: 'Chicken cream pasta' },
- 
+
     // Rice Bowls / Specials
     { id: 61, name: 'Chicken Teriyaki Bowl', category: 'riceBowls', price: 180, image: '🍚', desc: 'Sweet glazed chicken' },
     { id: 62, name: 'Beef Teriyaki Bowl', category: 'riceBowls', price: 200, image: '🍚', desc: 'Tender beef teriyaki' },
@@ -94,7 +88,7 @@ export default function FilipinoRestaurant() {
     { id: 68, name: 'Fried Chicken Rice Bowl', category: 'riceBowls', price: 190, image: '🍚', desc: 'Crispy chicken bowl' },
     { id: 69, name: 'BBQ Pork Rice Bowl', category: 'riceBowls', price: 200, image: '🍚', desc: 'Grilled pork bowl' },
     { id: 70, name: 'Vegan Veggie Rice Bowl', category: 'riceBowls', price: 160, image: '🥗', desc: 'Vegetarian bowl' },
- 
+
     // Sides & Appetizers
     { id: 71, name: 'French Fries', category: 'sides', price: 80, image: '🍟', desc: 'Crispy fries' },
     { id: 72, name: 'Cheese Fries', category: 'sides', price: 100, image: '🍟', desc: 'Fries with melted cheese' },
@@ -106,7 +100,7 @@ export default function FilipinoRestaurant() {
     { id: 78, name: 'Nachos w/ Cheese', category: 'sides', price: 100, image: '🧀', desc: 'Cheesy nachos' },
     { id: 79, name: 'Nachos w/ Beef', category: 'sides', price: 120, image: '🧀', desc: 'Nachos with ground beef' },
     { id: 80, name: 'Garlic Bread', category: 'sides', price: 70, image: '🍞', desc: 'Toasted garlic bread' },
- 
+
     // Pizza
     { id: 81, name: 'Classic Cheese Pizza', category: 'pizza', price: 250, image: '🍕', desc: '10" cheese pizza' },
     { id: 82, name: 'Pepperoni Pizza', category: 'pizza', price: 280, image: '🍕', desc: 'Loaded with pepperoni' },
@@ -118,7 +112,7 @@ export default function FilipinoRestaurant() {
     { id: 88, name: 'Garlic & Cheese Pizza', category: 'pizza', price: 260, image: '🍕', desc: 'Extra garlic & cheese' },
     { id: 89, name: 'Spicy Sausage Pizza', category: 'pizza', price: 290, image: '🍕', desc: 'Spicy sausage toppings' },
     { id: 90, name: 'Supreme Pizza', category: 'pizza', price: 330, image: '🍕', desc: 'Everything on it' },
- 
+
     // Drinks & Refreshments
     { id: 91, name: 'Iced Tea', category: 'drinks', price: 40, image: '🧋', desc: 'Fresh iced tea' },
     { id: 92, name: 'Lemonade', category: 'drinks', price: 45, image: '🍋', desc: 'Fresh lemonade' },
@@ -130,7 +124,7 @@ export default function FilipinoRestaurant() {
     { id: 98, name: 'Buko Juice', category: 'drinks', price: 55, image: '🥥', desc: 'Fresh coconut juice' },
     { id: 99, name: 'Iced Coffee', category: 'drinks', price: 60, image: '☕', desc: 'Cold coffee' },
     { id: 100, name: 'Milk Tea', category: 'drinks', price: 65, image: '🧋', desc: 'Creamy milk tea' },
- 
+
     // Desserts
     { id: 101, name: 'Leche Flan', category: 'desserts', price: 80, image: '🍮', desc: 'Creamy flan' },
     { id: 102, name: 'Ube Cake', category: 'desserts', price: 90, image: '🎂', desc: 'Purple yam cake' },
@@ -143,7 +137,7 @@ export default function FilipinoRestaurant() {
     { id: 109, name: 'Cheesecake', category: 'desserts', price: 100, image: '🍰', desc: 'Creamy cheesecake' },
     { id: 110, name: 'Cassava Cake', category: 'desserts', price: 80, image: '🎂', desc: 'Filipino cassava dessert' },
   ];
- 
+
   const categories = [
     { id: 'all', label: '🇵🇭 All Items' },
     { id: 'filipinoFavorites', label: '🍲 Filipino Favorites' },
@@ -157,11 +151,11 @@ export default function FilipinoRestaurant() {
     { id: 'drinks', label: '🧋 Drinks' },
     { id: 'desserts', label: '🍰 Desserts' },
   ];
- 
+
   const filteredItems = selectedCategory === 'all' 
     ? menuItems 
     : menuItems.filter(item => item.category === selectedCategory);
- 
+
   const addToCart = (item) => {
     const existing = cart.find(c => c.id === item.id);
     if (existing) {
@@ -170,7 +164,7 @@ export default function FilipinoRestaurant() {
       setCart([...cart, { ...item, qty: 1 }]);
     }
   };
- 
+
   const updateQuantity = (id, qty) => {
     if (qty === 0) {
       setCart(cart.filter(c => c.id !== id));
@@ -178,10 +172,10 @@ export default function FilipinoRestaurant() {
       setCart(cart.map(c => c.id === id ? { ...c, qty } : c));
     }
   };
- 
+
   const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
   const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
- 
+
   return (
     <div style={{ background: '#f5f5f5', minHeight: '100vh', fontFamily: 'var(--font-sans)' }}>
       {/* Header */}
@@ -257,7 +251,7 @@ export default function FilipinoRestaurant() {
           </button>
         </div>
       </header>
- 
+
       {/* Home Page */}
       {currentPage === 'home' && (
         <div style={{ padding: '2rem 1rem', maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
@@ -290,7 +284,7 @@ export default function FilipinoRestaurant() {
           </button>
         </div>
       )}
- 
+
       {/* Menu Page */}
       {currentPage === 'menu' && (
         <div style={{ padding: '1rem', maxWidth: '1200px', margin: '0 auto' }}>
@@ -324,7 +318,7 @@ export default function FilipinoRestaurant() {
               </button>
             ))}
           </div>
- 
+
           {/* Menu Items Grid */}
           <div style={{
             display: 'grid',
@@ -385,7 +379,7 @@ export default function FilipinoRestaurant() {
               </div>
             ))}
           </div>
- 
+
           {/* Back Button */}
           <button
             onClick={() => setCurrentPage('home')}
@@ -405,14 +399,14 @@ export default function FilipinoRestaurant() {
           </button>
         </div>
       )}
- 
+
       {/* Cart Page */}
       {currentPage === 'cart' && (
         <div style={{ padding: '1rem', maxWidth: '600px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '24px', fontWeight: 600, margin: '0 0 1.5rem', color: '#333' }}>
             🛒 Your Order
           </h2>
- 
+
           {cart.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
               <p style={{ fontSize: '16px', color: '#666', marginBottom: '1rem' }}>
@@ -503,7 +497,7 @@ export default function FilipinoRestaurant() {
                   </div>
                 ))}
               </div>
- 
+
               {/* Order Summary */}
               <div style={{ background: '#FFD700', borderRadius: '12px', padding: '1.25rem', marginBottom: '1rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -519,7 +513,7 @@ export default function FilipinoRestaurant() {
                   <span style={{ fontWeight: 700, fontSize: '18px', color: '#CE1126' }}>₱{total + 60}</span>
                 </div>
               </div>
- 
+
               {/* Checkout Info */}
               <div style={{ background: 'white', borderRadius: '12px', padding: '1rem', marginBottom: '1rem', border: '1px solid #eee' }}>
                 <h3 style={{ margin: '0 0 12px', fontSize: '14px', fontWeight: 600, color: '#333' }}>
@@ -554,7 +548,7 @@ export default function FilipinoRestaurant() {
                   }}
                 />
               </div>
- 
+
               {/* Action Buttons */}
               <button
                 onClick={() => setCurrentPage('menu')}
@@ -597,3 +591,4 @@ export default function FilipinoRestaurant() {
       )}
     </div>
   );
+}
