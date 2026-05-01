@@ -860,7 +860,7 @@ function updateThemeUI(){
   const label = isDark ? 'Dark' : 'Light';
   ['themeIcon','adminThemeIcon'].forEach(id => {
     const el = document.getElementById(id);
-    if(el) el.textContent = icon;
+    if(el) el.innerHTML = icon;
   });
   const lbl = document.getElementById('themeLabel');
   if(lbl) lbl.textContent = label;
