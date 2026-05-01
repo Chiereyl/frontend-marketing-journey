@@ -4,7 +4,14 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Czkiervan's — Authentic Cebuano Meals</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<meta name="description" content="Czkiervan's — Authentic Cebuano meals delivered hot and fresh in 35 minutes. Order Chicken Adobo, Lechon Kawali, Chicken Inasal and more. Serving Cebu City and nearby areas."/>
+<meta name="keywords" content="Cebuano food delivery, lutong bisaya, Cebu food, authentic Filipino food, Czkiervan's"/>
+<meta property="og:title" content="Czkiervan's — Authentic Cebuano Meals"/>
+<meta property="og:description" content="Fresh, hot, and made with puso. Authentic Cebuano comfort food delivered in 30–45 minutes."/>
+<meta property="og:type" content="restaurant"/>
+<meta name="theme-color" content="#C62828"/>
+<link rel="manifest" href="manifest.json"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -21,7 +28,7 @@
   --glow:0 0 40px rgba(198,40,40,0.2);
   --modal-bg:#141414;
   --input-bg:#1A1A1A;
-  --theme-icon:'🌙';
+  --theme-icon:'moon';
 }
 [data-theme="light"]{
   --red:#C62828;--red2:#EF5350;--red3:#FF8A80;
@@ -35,15 +42,27 @@
   --glow:0 0 40px rgba(198,40,40,0.1);
   --modal-bg:#FFFFFF;
   --input-bg:#F5F0EB;
-  --theme-icon:'☀️';
+  --theme-icon:'sun';
 }
 
 html{scroll-behavior:smooth}
-body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
 
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--red);border-radius:4px}
+
+/* ── STREAMLINE ICONS ── */
+.sl-icon{width:16px;height:16px;display:inline-block;flex-shrink:0;vertical-align:middle}
+.sl-icon-lg{width:56px;height:56px;color:var(--red)}
+.sl-icon-md{width:32px;height:32px}
+.sl-icon-sm{width:14px;height:14px}
+.sl-icon-xl{width:44px;height:44px}
+/* Secondary / muted icons */
+.sl-muted{opacity:0.55}
+/* Primary icons full opacity */
+.sl-primary{opacity:1}
+
 
 /* ── ANNOUNCEMENT BANNER ── */
 .announcement{
@@ -71,17 +90,17 @@ header{
 .search-bar{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1.5px solid var(--border);border-radius:30px;padding:9px 18px;width:220px;transition:.25s}
 .search-bar:focus-within{border-color:var(--red);box-shadow:0 0 0 3px rgba(198,40,40,0.15)}
 .search-bar svg{flex-shrink:0;color:var(--muted)}
-.search-bar input{border:none;outline:none;background:transparent;font-size:14px;color:var(--text);width:100%;font-family:'Nunito',sans-serif;font-weight:700}
+.search-bar input{border:none;outline:none;background:transparent;font-size:14px;color:var(--text);width:100%;font-family:'Montserrat',sans-serif;font-weight:700}
 .search-bar input::placeholder{color:var(--muted)}
 .header-actions{display:flex;align-items:center;gap:10px}
 .icon-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:9px;cursor:pointer;color:var(--muted);transition:.2s;display:flex;align-items:center;justify-content:center}
 .icon-btn:hover{border-color:var(--red);color:var(--red)}
-.theme-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:7px 14px;cursor:pointer;color:var(--text);transition:.2s;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;font-family:'Nunito',sans-serif;white-space:nowrap}
+.theme-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:7px 14px;cursor:pointer;color:var(--text);transition:.2s;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;white-space:nowrap}
 .theme-btn:hover{border-color:var(--red);color:var(--red)}
 .cart-btn{
   background:var(--red);color:#fff;border:none;
   border-radius:30px;padding:10px 22px;font-size:14px;font-weight:800;
-  font-family:'Nunito',sans-serif;cursor:pointer;display:flex;align-items:center;
+  font-family:'Montserrat',sans-serif;cursor:pointer;display:flex;align-items:center;
   gap:9px;transition:.2s;white-space:nowrap;box-shadow:var(--shadow-red);
 }
 .cart-btn:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 10px 28px rgba(198,40,40,0.5)}
@@ -90,7 +109,7 @@ header{
 
 /* ── NAV LINKS ── */
 .nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{background:transparent;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.18s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.nav-link{background:transparent;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.18s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
 .nav-link:hover{color:var(--red);background:rgba(198,40,40,0.08)}
 @media(max-width:1100px){.nav-links{display:none}}
 
@@ -108,9 +127,9 @@ header{
 .hero-subtitle{font-size:16px;color:var(--muted);font-weight:600;line-height:1.7;max-width:480px;margin-bottom:28px}
 .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap}
 @media(max-width:900px){.hero-cta-row{justify-content:center}}
-.btn-primary{background:var(--red);color:#fff;border:none;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:900;font-family:'Nunito',sans-serif;cursor:pointer;transition:.2s;letter-spacing:.3px;box-shadow:var(--shadow-red)}
+.btn-primary{background:var(--red);color:#fff;border:none;border-radius:14px;padding:14px 28px;font-size:15px;font-weight:900;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.2s;letter-spacing:.3px;box-shadow:var(--shadow-red)}
 .btn-primary:hover{background:var(--red2);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--yellow);border:2px solid var(--yellow);border-radius:14px;padding:13px 26px;font-size:15px;font-weight:900;font-family:'Nunito',sans-serif;cursor:pointer;transition:.2s}
+.btn-outline{background:transparent;color:var(--yellow);border:2px solid var(--yellow);border-radius:14px;padding:13px 26px;font-size:15px;font-weight:900;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.2s}
 .btn-outline:hover{background:rgba(255,179,0,0.1)}
 .hero-stats{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
 @media(max-width:900px){.hero-stats{justify-content:center}}
@@ -155,7 +174,7 @@ header{
 .cat-wrap{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:72px;z-index:150}
 .cat-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;height:56px}
 .cat-inner::-webkit-scrollbar{display:none}
-.cat-btn{flex-shrink:0;border:1.5px solid var(--border);background:transparent;border-radius:30px;padding:7px 20px;font-size:13px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;color:var(--muted);transition:.18s;white-space:nowrap;}
+.cat-btn{flex-shrink:0;border:1.5px solid var(--border);background:transparent;border-radius:30px;padding:7px 20px;font-size:13px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;color:var(--muted);transition:.18s;white-space:nowrap;}
 .cat-btn:hover{border-color:var(--red);color:var(--red)}
 .cat-btn.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 2px 12px rgba(198,40,40,0.4)}
 
@@ -164,7 +183,7 @@ header{
 @media(max-width:1000px){.layout{grid-template-columns:1fr}}
 
 .section-heading{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:24px;color:var(--white);display:flex;align-items:center;gap:10px;font-weight:900}
-.section-heading .badge{font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;background:var(--red);color:#fff;border-radius:20px;padding:3px 10px;margin-left:8px}
+.section-heading .badge{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;background:var(--red);color:#fff;border-radius:20px;padding:3px 10px;margin-left:8px}
 
 /* ── MENU GRID ── */
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
@@ -190,7 +209,7 @@ header{
 .add-btn:hover{background:var(--red2);transform:scale(1.1)}
 .add-btn:active{transform:scale(0.9)}
 .qty-ctrl{display:flex;align-items:center;gap:5px}
-.qty-ctrl button{background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;width:30px;height:30px;font-size:16px;font-weight:900;cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center;transition:.1s;font-family:'Nunito',sans-serif;}
+.qty-ctrl button{background:var(--bg2);border:1.5px solid var(--border);border-radius:7px;width:30px;height:30px;font-size:16px;font-weight:900;cursor:pointer;color:var(--text);display:flex;align-items:center;justify-content:center;transition:.1s;font-family:'Montserrat',sans-serif;}
 .qty-ctrl button:hover{border-color:var(--red);color:var(--red);background:rgba(198,40,40,0.1)}
 .qty-ctrl span{font-size:15px;font-weight:900;min-width:22px;text-align:center;color:var(--text)}
 
@@ -198,7 +217,7 @@ header{
 .cart-sidebar{background:var(--bg2);border-radius:20px;border:1.5px solid var(--border);box-shadow:var(--shadow);position:sticky;top:144px;overflow:hidden;}
 .cart-sidebar-head{background:var(--red);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;}
 .cart-sidebar-head h3{font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:900}
-.cart-sidebar-head button{background:rgba(255,255,255,0.2);border:none;font-size:12px;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;border-radius:20px;padding:5px 14px;transition:.2s}
+.cart-sidebar-head button{background:rgba(255,255,255,0.2);border:none;font-size:12px;color:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:800;border-radius:20px;padding:5px 14px;transition:.2s}
 .cart-sidebar-head button:hover{background:rgba(255,255,255,0.3)}
 .cart-items-list{padding:14px 18px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
 .cart-empty{text-align:center;padding:36px 0;color:var(--muted);font-size:14px;font-weight:700}
@@ -221,7 +240,7 @@ header{
 [data-theme="light"] .checkout-btn:disabled{background:#C8BEB4;color:#8A7A6A}
 
 /* ── FLOATING CART ── */
-.float-cart{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;border-radius:30px;padding:14px 26px;font-size:15px;font-weight:900;font-family:'Nunito',sans-serif;border:none;cursor:pointer;z-index:150;box-shadow:0 8px 28px rgba(198,40,40,0.6);gap:12px;align-items:center;white-space:nowrap;transition:.3s;min-width:210px;justify-content:space-between}
+.float-cart{display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;border-radius:30px;padding:14px 26px;font-size:15px;font-weight:900;font-family:'Montserrat',sans-serif;border:none;cursor:pointer;z-index:150;box-shadow:0 8px 28px rgba(198,40,40,0.6);gap:12px;align-items:center;white-space:nowrap;transition:.3s;min-width:210px;justify-content:space-between}
 @media(max-width:1000px){.float-cart{display:flex}}
 .float-badge{background:var(--yellow);color:#5a3e00;border-radius:50%;width:26px;height:26px;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center}
 .float-total{font-size:14px;font-weight:900;color:var(--yellow)}
@@ -244,20 +263,20 @@ header{
 .modal{background:var(--modal-bg);border-radius:24px;padding:32px;width:100%;max-width:460px;box-shadow:var(--shadow);max-height:92vh;overflow-y:auto;border:1.5px solid var(--border)}
 .modal-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);margin-bottom:22px;display:flex;align-items:center;gap:10px;font-weight:900}
 .modal label{font-size:11px;font-weight:800;color:var(--muted);display:block;margin-bottom:5px;margin-top:16px;text-transform:uppercase;letter-spacing:.08em}
-.modal input,.modal select{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:700;outline:none;transition:.2s;color:var(--text);background:var(--input-bg)}
+.modal input,.modal select{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 16px;font-size:14px;font-family:'Montserrat',sans-serif;font-weight:700;outline:none;transition:.2s;color:var(--text);background:var(--input-bg)}
 .modal input:focus,.modal select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(198,40,40,0.1)}
 .modal input::placeholder{color:var(--muted)}
 .pay-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
-.pay-option{border:2px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;font-size:13px;font-weight:800;text-align:center;transition:.2s;color:var(--muted);font-family:'Nunito',sans-serif;background:var(--bg3);display:flex;flex-direction:column;align-items:center;gap:4px;}
+.pay-option{border:2px solid var(--border);border-radius:12px;padding:14px 12px;cursor:pointer;font-size:13px;font-weight:800;text-align:center;transition:.2s;color:var(--muted);font-family:'Montserrat',sans-serif;background:var(--bg3);display:flex;flex-direction:column;align-items:center;gap:4px;}
 .pay-option:hover{border-color:var(--red);color:var(--text)}
 .pay-option.selected{border-color:var(--red);background:rgba(198,40,40,0.12);color:var(--text)}
 .pay-logo{font-size:24px}
 .pay-name{font-size:13px;font-weight:900;color:var(--text)}
 .pay-note{font-size:11px;color:var(--muted)}
 .modal-actions{display:flex;gap:10px;margin-top:24px}
-.btn-cancel-modal{flex:1;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s}
+.btn-cancel-modal{flex:1;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s}
 .btn-cancel-modal:hover{border-color:var(--red);color:var(--red)}
-.btn-order{flex:2;background:var(--red);border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;box-shadow:var(--shadow-red)}
+.btn-order{flex:2;background:var(--red);border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:900;color:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;box-shadow:var(--shadow-red)}
 .btn-order:hover{background:var(--red2);transform:translateY(-1px)}
 
 /* ── SUCCESS MODAL ── */
@@ -275,13 +294,13 @@ header{
 .pay-redirect-modal{background:var(--modal-bg);border-radius:24px;padding:36px;width:100%;max-width:420px;box-shadow:var(--shadow);text-align:center;border:1.5px solid var(--border)}
 .pay-redirect-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--white);font-weight:900;margin-bottom:10px}
 .pay-redirect-sub{font-size:14px;color:var(--muted);font-weight:700;margin-bottom:22px;line-height:1.6}
-.pay-app-btn{display:block;width:100%;padding:16px;border-radius:14px;font-size:15px;font-weight:900;text-align:center;text-decoration:none;margin-bottom:14px;transition:.2s;font-family:'Nunito',sans-serif}
+.pay-app-btn{display:block;width:100%;padding:16px;border-radius:14px;font-size:15px;font-weight:900;text-align:center;text-decoration:none;margin-bottom:14px;transition:.2s;font-family:'Montserrat',sans-serif}
 .pay-app-btn.gcash{background:#007DC5;color:#fff}
 .pay-app-btn.maya{background:#28A745;color:#fff}
 .pay-app-btn.paypal{background:#003087;color:#fff}
 .pay-app-btn:hover{opacity:.9;transform:translateY(-1px)}
 .pay-security-note{font-size:12px;color:var(--muted);font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:14px}
-.pay-back-btn{background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:10px 20px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s}
+.pay-back-btn{background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:10px 20px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s}
 .pay-back-btn:hover{border-color:var(--red);color:var(--red)}
 
 /* ── ORDER TRACKING MODAL ── */
@@ -297,7 +316,7 @@ header{
 .track-step-title{font-size:15px;font-weight:900;color:var(--muted)}
 .track-step.done .track-step-title,.track-step.active .track-step-title{color:var(--text)}
 .track-step-time{font-size:12px;color:var(--muted);font-weight:700;margin-top:2px}
-.cancel-order-btn{width:100%;background:transparent;border:1.5px solid rgba(198,40,40,0.4);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--red2);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;margin-bottom:8px}
+.cancel-order-btn{width:100%;background:transparent;border:1.5px solid rgba(198,40,40,0.4);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--red2);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;margin-bottom:8px}
 .cancel-order-btn:hover:not(:disabled){background:rgba(198,40,40,0.1)}
 .cancel-order-btn:disabled{opacity:.5;cursor:not-allowed}
 .cancel-note{font-size:12px;color:var(--muted);font-weight:700;text-align:center;margin-bottom:6px}
@@ -316,11 +335,11 @@ header{
 .admin-header{background:var(--bg3);border-bottom:1px solid var(--border);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .admin-header h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);font-weight:900}
 .admin-header-actions{display:flex;align-items:center;gap:10px}
-.admin-close{background:transparent;border:1.5px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s}
+.admin-close{background:transparent;border:1.5px solid var(--border);border-radius:8px;padding:8px 16px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s}
 .admin-close:hover{border-color:var(--red);color:var(--red)}
 .admin-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--bg3);overflow-x:auto;scrollbar-width:none;flex-shrink:0}
 .admin-tabs::-webkit-scrollbar{display:none}
-.admin-tab{background:transparent;border:none;border-bottom:3px solid transparent;padding:14px 22px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.18s;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.admin-tab{background:transparent;border:none;border-bottom:3px solid transparent;padding:14px 22px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.18s;white-space:nowrap;display:flex;align-items:center;gap:6px}
 .admin-tab:hover{color:var(--text)}
 .admin-tab.active{color:var(--red);border-bottom-color:var(--red);background:rgba(198,40,40,0.06)}
 .admin-body{flex:1;overflow-y:auto;padding:24px 28px}
@@ -336,12 +355,12 @@ header{
 .admin-orders-table th{text-align:left;padding:10px 12px;font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)}
 .admin-orders-table td{padding:12px;border-bottom:1px solid var(--border);font-weight:700;color:var(--text);vertical-align:middle}
 .admin-orders-table tr:hover td{background:rgba(198,40,40,0.04)}
-.admin-search{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 16px;font-size:14px;font-family:'Nunito',sans-serif;font-weight:700;outline:none;transition:.2s;color:var(--text);background:var(--bg3);margin-bottom:14px}
+.admin-search{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 16px;font-size:14px;font-family:'Montserrat',sans-serif;font-weight:700;outline:none;transition:.2s;color:var(--text);background:var(--bg3);margin-bottom:14px}
 .admin-search:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(198,40,40,0.1)}
 .admin-filter-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.admin-filter-btn{border:1.5px solid var(--border);background:transparent;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s}
+.admin-filter-btn{border:1.5px solid var(--border);background:transparent;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s}
 .admin-filter-btn.active{background:var(--red);color:#fff;border-color:var(--red)}
-.admin-action-btn{border:1.5px solid var(--border);background:transparent;border-radius:7px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;white-space:nowrap}
+.admin-action-btn{border:1.5px solid var(--border);background:transparent;border-radius:7px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;white-space:nowrap}
 .admin-action-btn:hover{border-color:var(--red);color:var(--red)}
 .admin-action-btn.advance{border-color:rgba(76,175,80,0.4);color:#4CAF50}
 .admin-action-btn.advance:hover{background:rgba(76,175,80,0.1)}
@@ -353,7 +372,7 @@ header{
 .blog-title-block{}
 .blog-eyebrow{font-size:11px;font-weight:900;color:var(--red2);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;display:block}
 .blog-main-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--white)}
-.blog-see-all{background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:9px 18px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;text-decoration:none}
+.blog-see-all{background:transparent;border:1.5px solid var(--border);border-radius:10px;padding:9px 18px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;text-decoration:none}
 .blog-see-all:hover{border-color:var(--red);color:var(--red)}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .blog-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;transition:.25s;cursor:pointer}
@@ -407,7 +426,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 .social-btn:hover{border-color:var(--red);background:rgba(198,40,40,0.1)}
 .footer-col-title{font-size:13px;font-weight:900;color:var(--white);letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
 .footer-links{display:flex;flex-direction:column;gap:10px}
-.footer-link{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;transition:.15s;cursor:pointer;background:none;border:none;text-align:left;font-family:'Nunito',sans-serif}
+.footer-link{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;transition:.15s;cursor:pointer;background:none;border:none;text-align:left;font-family:'Montserrat',sans-serif}
 .footer-link:hover{color:var(--red2)}
 .footer-contact-row{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:10px}
 .footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
@@ -415,14 +434,14 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 .footer-badges{display:flex;gap:8px;flex-wrap:wrap}
 .footer-badge{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:900;color:var(--muted)}
 .newsletter-form{display:flex;gap:8px;margin-top:14px}
-.newsletter-input{flex:1;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);outline:none;transition:.2s}
+.newsletter-input{flex:1;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);outline:none;transition:.2s}
 .newsletter-input:focus{border-color:var(--red)}
 .newsletter-input::placeholder{color:var(--muted)}
-.newsletter-btn{background:var(--red);border:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:900;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;white-space:nowrap}
+.newsletter-btn{background:var(--red);border:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:900;color:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;white-space:nowrap}
 .newsletter-btn:hover{background:var(--red2)}
 
 /* ── MY ORDERS BTN ── */
-.my-orders-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:30px;padding:9px 18px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s;display:flex;align-items:center;gap:7px;}
+.my-orders-btn{background:var(--bg3);border:1.5px solid var(--border);border-radius:30px;padding:9px 18px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;display:flex;align-items:center;gap:7px;}
 .my-orders-btn:hover{border-color:var(--red);color:var(--red)}
 
 /* ── NO RESULTS ── */
@@ -461,7 +480,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 <body>
 
 <!-- ANNOUNCEMENT BANNER -->
-<div class="announcement">🔥 FREE DELIVERY on orders ₱500+ · Use code <b>BISAYA10</b> for 10% off · Order before 8PM for same-day delivery! 🚴</div>
+<div class="announcement">FREE DELIVERY on orders ₱500+ &nbsp;·&nbsp; Use code <b>BISAYA10</b> for 10% off &nbsp;·&nbsp; Order before 8PM for same-day delivery</div>
 
 <!-- HEADER -->
 <header>
@@ -469,15 +488,15 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
     <a class="brand" href="#" onclick="scrollToTop()">
       <div>
         <div class="brand-logo">Czkiervan<span>'s</span></div>
-        <div class="brand-tag">🍛 Authentic Cebuano Meals</div>
+        <div class="brand-tag">Authentic Cebuano Meals</div>
       </div>
     </a>
     <!-- NAV LINKS -->
     <nav class="nav-links">
-      <a class="nav-link" href="#" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'});return false">🍽️ Menu</a>
-      <a class="nav-link" href="#" onclick="document.getElementById('whySection').scrollIntoView({behavior:'smooth'});return false">⭐ Why Us</a>
-      <a class="nav-link" href="#" onclick="document.getElementById('blogSection').scrollIntoView({behavior:'smooth'});return false">📖 Blog</a>
-      <a class="nav-link" href="#" onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'});return false">❓ FAQ</a>
+      <a class="nav-link" href="#" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Menu</a>
+      <a class="nav-link" href="#" onclick="document.getElementById('whySection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Why Us</a>
+      <a class="nav-link" href="#" onclick="document.getElementById('blogSection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> Blog</a>
+      <a class="nav-link" href="#" onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ</a>
     </nav>
     <div class="header-right">
       <div class="search-bar">
@@ -487,7 +506,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
       <div class="header-actions">
         <!-- THEME TOGGLE -->
         <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-          <span id="themeIcon">🌙</span>
+          <span id="themeIcon"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
           <span id="themeLabel">Dark</span>
         </button>
         <button class="my-orders-btn" onclick="openMyOrders()">
@@ -513,7 +532,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
   <div class="hero-grid-lines"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span>⭐ #1 Cebuano Food Delivery</span></div>
+      <div class="hero-eyebrow"><span>#1 Cebuano Food Delivery</span></div>
       <h1 class="hero-title">
         Lutong Bisaya<br/>
         <em>straight to</em><br/>
@@ -521,7 +540,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
       </h1>
       <p class="hero-subtitle">Fresh, hot, and made with puso — authentic Cebuano comfort food delivered in 30–45 minutes. Because home-cooked meals shouldn't stay at home.</p>
       <div class="hero-cta-row">
-        <button class="btn-primary" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'})">Order Now 🍛</button>
+        <button class="btn-primary" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'})">Order Now</button>
         <button class="btn-outline" onclick="document.getElementById('whySection').scrollIntoView({behavior:'smooth'})">Why Choose Us?</button>
       </div>
       <div class="hero-stats">
@@ -532,22 +551,22 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
     </div>
     <div class="hero-right">
       <div class="promo-card" onclick="applyPromo('BISAYA10')">
-        <div class="promo-icon">🎉</div>
+        <div class="promo-icon"><svg style="width:28px;height:28px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
         <div><div class="promo-card-title">First Order Promo</div><div class="promo-card-desc">10% off your first order today</div></div>
         <div class="promo-tag">Code: BISAYA10</div>
       </div>
       <div class="promo-card" onclick="selectCat('Filipino')">
-        <div class="promo-icon">🍖</div>
+        <div class="promo-icon"><svg style="width:28px;height:28px;color:var(--yellow)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
         <div><div class="promo-card-title">Today's Special</div><div class="promo-card-desc">Lechon Kawali + Rice + Drink — only ₱199</div></div>
         <div class="promo-tag gold">HOT DEAL</div>
       </div>
       <div class="promo-card">
-        <div class="promo-icon">🚴</div>
+        <div class="promo-icon"><svg style="width:28px;height:28px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 100-2 1 1 0 000 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg></div>
         <div><div class="promo-card-title">Free Delivery</div><div class="promo-card-desc">Orders ₱500 and above</div></div>
         <div class="promo-tag">AUTO</div>
       </div>
       <div class="promo-card" onclick="openAdmin()">
-        <div class="promo-icon">📊</div>
+        <div class="promo-icon"><svg style="width:28px;height:28px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <div><div class="promo-card-title">Admin Dashboard</div><div class="promo-card-desc">Manage orders, deliveries & analytics</div></div>
         <div class="promo-tag">ADMIN</div>
       </div>
@@ -572,32 +591,32 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
     </div>
     <div class="why-grid">
       <div class="why-card fade-up">
-        <span class="why-icon">🍲</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
         <div class="why-card-title">Authentic Cebuano Recipes</div>
         <p class="why-card-desc">Every dish is crafted from time-honored Bisaya recipes passed down through generations. No shortcuts, no compromise — just real lutong bahay flavor.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.08s">
-        <span class="why-icon">⚡</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:var(--yellow)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <div class="why-card-title">35-Minute Delivery Guarantee</div>
         <p class="why-card-desc">We promise your food arrives hot and fresh. Our fleet of dedicated riders ensures every order reaches you within 35 minutes — or your next delivery is free.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.16s">
-        <span class="why-icon">🌿</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:#4CAF50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16a8 8 0 009.5-7V4s-5 0-8 5a8 8 0 00-1.5 7z"/><path d="M6.5 16c.5-3 2-5 5-6.5"/></svg></span>
         <div class="why-card-title">Fresh Local Ingredients</div>
         <p class="why-card-desc">We source all our vegetables, meats, and spices from trusted local Cebuano suppliers and wet markets daily. You taste the freshness in every bite.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.24s">
-        <span class="why-icon">💳</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>
         <div class="why-card-title">Flexible Payment Options</div>
         <p class="why-card-desc">Pay your way — Cash on Delivery, GCash, Maya, or PayPal. We make ordering as easy and convenient as possible, no barriers.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.32s">
-        <span class="why-icon">📍</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:var(--yellow)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
         <div class="why-card-title">Real-Time Order Tracking</div>
         <p class="why-card-desc">Know exactly where your food is from kitchen to doorstep. Our live tracking system keeps you updated every step of the way.</p>
       </div>
       <div class="why-card fade-up" style="transition-delay:.4s">
-        <span class="why-icon">❤️</span>
+        <span class="why-icon"><svg style="width:40px;height:40px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
         <div class="why-card-title">Community First</div>
         <p class="why-card-desc">We are proudly Cebuano-owned and operated. Every order you place directly supports local farmers, suppliers, and families in our community.</p>
       </div>
@@ -614,7 +633,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 <div class="layout">
   <div>
     <h2 class="section-heading" id="sectionHeading">
-      🍽️ <span id="catLabel">Filipino</span> Favorites
+      <svg style="width:22px;height:22px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> <span id="catLabel">Filipino</span> Favorites
       <span class="badge" id="countBadge">0</span>
     </h2>
     <div class="menu-grid" id="menuGrid"></div>
@@ -623,11 +642,11 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
   <!-- DESKTOP CART SIDEBAR -->
   <aside class="cart-sidebar" id="cartSidebar">
     <div class="cart-sidebar-head">
-      <h3>🛒 Your Order</h3>
+      <h3 style="display:flex;align-items:center;gap:8px"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Your Order</h3>
       <button onclick="clearCart()">Clear All</button>
     </div>
     <div class="cart-items-list" id="sidebarList">
-      <div class="cart-empty"><div class="icon">🍽️</div><div>Cart is empty!<br/>Start ordering na!</div></div>
+      <div class="cart-empty"><div class="icon"><svg style="width:44px;height:44px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div><div>Cart is empty!<br/>Start ordering na!</div></div>
     </div>
     <hr class="cart-divider"/>
     <div class="cart-summary">
@@ -637,10 +656,10 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
       <div class="cart-row total"><span>Total</span><span id="sideTotal">₱0.00</span></div>
     </div>
     <div style="padding:0 18px 14px;display:flex;gap:8px">
-      <input type="text" id="promoInput" placeholder="Promo code..." style="flex:1;background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);outline:none"/>
-      <button onclick="applyPromoCode()" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Apply</button>
+      <input type="text" id="promoInput" placeholder="Promo code..." style="flex:1;background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font-size:13px;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);outline:none"/>
+      <button onclick="applyPromoCode()" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Apply</button>
     </div>
-    <button class="checkout-btn" id="sideCheckoutBtn" onclick="openModal()" disabled>Place Order 🎉</button>
+    <button class="checkout-btn" id="sideCheckoutBtn" onclick="openModal()" disabled>Place Order</button>
   </aside>
 </div>
 
@@ -663,7 +682,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
         <span class="blog-eyebrow">Our Stories</span>
         <h2 class="blog-main-title">From Our Kitchen to You</h2>
       </div>
-      <a class="blog-see-all" href="#" onclick="showToast('📖 Full blog coming soon!');return false">See All Posts →</a>
+      <a class="blog-see-all" href="#" onclick="showToast('Full blog coming soon!');return false">See All Posts →</a>
     </div>
     <div class="blog-grid" id="blogGrid"></div>
   </div>
@@ -689,28 +708,28 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
         <div class="footer-logo">Czkiervan<span>'s</span></div>
         <p class="footer-tagline">Authentic Cebuano comfort food delivered hot and fresh to your doorstep. Made with love, served with puso.</p>
         <div class="footer-social">
-          <a class="social-btn" href="#" title="Facebook" onclick="showToast('🔗 Facebook page coming soon!');return false">📘</a>
-          <a class="social-btn" href="#" title="Instagram" onclick="showToast('📸 Instagram coming soon!');return false">📸</a>
-          <a class="social-btn" href="#" title="TikTok" onclick="showToast('🎵 TikTok coming soon!');return false">🎵</a>
-          <a class="social-btn" href="#" title="Messenger" onclick="showToast('💬 Open Messenger!');return false">💬</a>
+          <a class="social-btn" href="#" title="Facebook" onclick="showToast('Facebook page coming soon!');return false"><svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a class="social-btn" href="#" title="Instagram" onclick="showToast('Instagram coming soon!');return false"><svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a class="social-btn" href="#" title="TikTok" onclick="showToast('TikTok coming soon!');return false"><svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg></a>
+          <a class="social-btn" href="#" title="Messenger" onclick="showToast('Open Messenger!');return false"><svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></a>
         </div>
         <div style="margin-top:18px">
           <div style="font-size:12px;font-weight:800;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.1em">Newsletter</div>
           <div class="newsletter-form">
             <input class="newsletter-input" type="email" placeholder="your@email.com"/>
-            <button class="newsletter-btn" onclick="showToast('📧 Subscribed! Salamat!')">Subscribe</button>
+            <button class="newsletter-btn" onclick="showToast('Subscribed! Salamat!')">Subscribe</button>
           </div>
         </div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
         <div class="footer-links">
-          <a class="footer-link" href="#" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'});return false">🍽️ Full Menu</a>
-          <a class="footer-link" href="#" onclick="document.getElementById('whySection').scrollIntoView({behavior:'smooth'});return false">⭐ Why Choose Us</a>
-          <a class="footer-link" href="#" onclick="document.getElementById('blogSection').scrollIntoView({behavior:'smooth'});return false">📖 Blog</a>
-          <a class="footer-link" href="#" onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'});return false">❓ FAQ</a>
-          <a class="footer-link" href="#" onclick="openMyOrders();return false">📋 My Orders</a>
-          <a class="footer-link" href="#" onclick="openAdmin();return false">📊 Admin Panel</a>
+          <a class="footer-link" href="#" onclick="document.querySelector('.cat-wrap').scrollIntoView({behavior:'smooth'});return false"><svg style="width:13px;height:13px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Full Menu</a>
+          <a class="footer-link" href="#" onclick="document.getElementById('whySection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:13px;height:13px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Why Choose Us</a>
+          <a class="footer-link" href="#" onclick="document.getElementById('blogSection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg> Blog</a>
+          <a class="footer-link" href="#" onclick="document.getElementById('faqSection').scrollIntoView({behavior:'smooth'});return false"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ</a>
+          <a class="footer-link" href="#" onclick="openMyOrders();return false"><svg style="width:13px;height:13px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>My Orders</a>
+          <a class="footer-link" href="#" onclick="openAdmin();return false"><svg style="width:13px;height:13px;margin-right:4px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Admin Panel</a>
         </div>
       </div>
       <div>
@@ -719,27 +738,27 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
       </div>
       <div>
         <div class="footer-col-title">Contact Us</div>
-        <div class="footer-contact-row">📞 +63 912 345 6789</div>
-        <div class="footer-contact-row">📧 hello@czkiervans.com</div>
-        <div class="footer-contact-row">📍 Cebu City, Philippines</div>
-        <div class="footer-contact-row">🕐 Mon–Sun: 8AM – 9PM</div>
+        <div class="footer-contact-row"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.18 4.18 2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +63 912 345 6789</div>
+        <div class="footer-contact-row"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg> hello@czkiervans.com</div>
+        <div class="footer-contact-row"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Cebu City, Philippines</div>
+        <div class="footer-contact-row"><svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mon–Sun: 8AM – 9PM</div>
         <div style="margin-top:14px">
           <div style="font-size:12px;font-weight:800;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.1em">We Accept</div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)">💵 COD</span>
-            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)">📱 GCash</span>
-            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)">💳 Maya</span>
-            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)">🅿️ PayPal</span>
+            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)"><svg style="width:11px;height:11px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>COD</span>
+            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)"><svg style="width:11px;height:11px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>GCash</span>
+            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)"><svg style="width:11px;height:11px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Maya</span>
+            <span style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-weight:900;color:var(--muted)"><svg style="width:11px;height:11px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11C4.239 11 2 8.761 2 6c0-2.761 2.239-5 5-5h8c2.761 0 5 2.239 5 5 0 2.761-2.239 5-5 5H7z"/><path d="M7 17c-2.761 0-5-2.239-5-5 0-2.761 2.239-5 5-5"/></svg>PayPal</span>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 Czkiervan's. All rights reserved. Made with ❤️ in Cebu.</div>
+      <div class="footer-copy">© 2025 Czkiervan's. All rights reserved. Made with love in Cebu.</div>
       <div class="footer-badges">
-        <span class="footer-badge">🔒 SSL Secure</span>
-        <span class="footer-badge">🇵🇭 Proudly Cebuano</span>
-        <span class="footer-badge">⚡ 35-Min Delivery</span>
+        <span class="footer-badge"><svg style="width:10px;height:10px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>SSL Secure</span>
+        <span class="footer-badge"><svg style="width:10px;height:10px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>Proudly Cebuano</span>
+        <span class="footer-badge"><svg style="width:10px;height:10px;margin-right:3px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>35-Min Delivery</span>
       </div>
     </div>
   </div>
@@ -759,7 +778,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 <div class="cart-drawer" id="cartDrawer">
   <div class="drawer-handle"></div>
   <div style="background:var(--red);padding:16px 20px;display:flex;align-items:center;justify-content:space-between">
-    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:900">🛒 Your Order</h3>
+    <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-weight:900;display:flex;align-items:center;gap:8px"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg> Your Order</h3>
     <button onclick="closeDrawer()" style="background:rgba(255,255,255,0.2);border:none;font-size:18px;cursor:pointer;color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center">✕</button>
   </div>
   <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px" id="drawerList"></div>
@@ -771,10 +790,10 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
     <div class="cart-row total"><span>Total</span><span id="drawerTotal">₱0.00</span></div>
   </div>
   <div style="padding:0 18px 10px;display:flex;gap:8px">
-    <input type="text" id="drawerPromoInput" placeholder="Promo code..." style="flex:1;background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);outline:none"/>
-    <button onclick="applyPromoCode(true)" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif">Apply</button>
+    <input type="text" id="drawerPromoInput" placeholder="Promo code..." style="flex:1;background:var(--bg3);border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;font-size:13px;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);outline:none"/>
+    <button onclick="applyPromoCode(true)" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif">Apply</button>
   </div>
-  <button class="checkout-btn" id="drawerCheckoutBtn" onclick="closeDrawer();openModal()" disabled style="width:calc(100% - 36px);margin:0 18px 20px">Place Order 🎉</button>
+  <button class="checkout-btn" id="drawerCheckoutBtn" onclick="closeDrawer();openModal()" disabled style="width:calc(100% - 36px);margin:0 18px 20px">Place Order</button>
 </div>
 
 <!-- CHECKOUT MODAL -->
@@ -801,21 +820,21 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:56px 24p
 <div class="admin-overlay" id="adminOverlay" onclick="handleAdminClick(event)">
   <div class="admin-panel">
     <div class="admin-header">
-      <h2>📊 Admin Dashboard — Czkiervan's</h2>
+      <h2 style="display:flex;align-items:center;gap:8px"><svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Admin Dashboard — Czkiervan's</h2>
       <div class="admin-header-actions">
         <button class="theme-btn" onclick="toggleTheme()" style="font-size:12px">
-          <span id="adminThemeIcon">🌙</span> Theme
+          <span id="adminThemeIcon"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span> Theme
         </button>
         <button class="admin-close" onclick="closeAdmin()">✕ Close</button>
       </div>
     </div>
     <div class="admin-tabs">
-      <button class="admin-tab active" onclick="switchAdminTab(this,'orders')">📋 Orders</button>
-      <button class="admin-tab" onclick="switchAdminTab(this,'deliveries')">🚴 Deliveries</button>
-      <button class="admin-tab" onclick="switchAdminTab(this,'analytics')">📈 Analytics</button>
-      <button class="admin-tab" onclick="switchAdminTab(this,'menu')">🍽️ Menu</button>
-      <button class="admin-tab" onclick="switchAdminTab(this,'promos')">🎟️ Promos</button>
-      <button class="admin-tab" onclick="switchAdminTab(this,'settings')">⚙️ Settings</button>
+      <button class="admin-tab active" onclick="switchAdminTab(this,'orders')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Orders</button>
+      <button class="admin-tab" onclick="switchAdminTab(this,'deliveries')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 100-2 1 1 0 000 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg> Deliveries</button>
+      <button class="admin-tab" onclick="switchAdminTab(this,'analytics')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Analytics</button>
+      <button class="admin-tab" onclick="switchAdminTab(this,'menu')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg> Menu</button>
+      <button class="admin-tab" onclick="switchAdminTab(this,'promos')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg> Promos</button>
+      <button class="admin-tab" onclick="switchAdminTab(this,'settings')"><svg style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg> Settings</button>
     </div>
     <div class="admin-body" id="adminBody"></div>
   </div>
@@ -837,7 +856,7 @@ function toggleTheme(){
 }
 function updateThemeUI(){
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const icon = isDark ? '🌙' : '☀️';
+  const icon = isDark ? `<svg style=\"width:14px;height:14px\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z\"/></svg>` : `<svg style=\"width:14px;height:14px\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"5\"/><line x1=\"12\" y1=\"1\" x2=\"12\" y2=\"3\"/><line x1=\"12\" y1=\"21\" x2=\"12\" y2=\"23\"/><line x1=\"4.22\" y1=\"4.22\" x2=\"5.64\" y2=\"5.64\"/><line x1=\"18.36\" y1=\"18.36\" x2=\"19.78\" y2=\"19.78\"/><line x1=\"1\" y1=\"12\" x2=\"3\" y2=\"12\"/><line x1=\"21\" y1=\"12\" x2=\"23\" y2=\"12\"/><line x1=\"4.22\" y1=\"19.78\" x2=\"5.64\" y2=\"18.36\"/><line x1=\"18.36\" y1=\"5.64\" x2=\"19.78\" y2=\"4.22\"/></svg>`;
   const label = isDark ? 'Dark' : 'Light';
   ['themeIcon','adminThemeIcon'].forEach(id => {
     const el = document.getElementById(id);
@@ -938,19 +957,19 @@ const MENU = {
 // Blog posts data
 const BLOG_POSTS = [
   {
-    id:1, tag:'Story', date:'December 12, 2024', emoji:'👨‍🍳',
+    id:1, tag:'Story', date:'December 12, 2024', emoji:'chef',
     title:'From Home Kitchen to 2,400 Orders: The Czkiervan\'s Story',
     excerpt:'What started as cooking for neighbors on a Saturday afternoon became Cebu\'s most-loved food delivery. Here\'s how it all began.',
     body:`<p>Every great restaurant has a humble beginning. Ours started with a <em>kawali</em>, a bag of pork belly, and a neighbor who knocked on our door asking if we had anything to eat.</p><p>Czkiervan's was born in 2022 when our founder, Kiervan, started cooking traditional Bisaya recipes that his lola taught him during childhood. What began as feeding a few neighbors quickly turned into a full-time passion — and then a business.</p><p>Today, with over 2,400 orders served and a rating of 4.9 stars, we're proud to bring authentic Cebuano comfort food to every barangay we serve. Every plate we send out carries the same love and intention as that very first bowl of sinigang.</p><p>Salamat to everyone who believed in us from the beginning. Padayon!</p>`
   },
   {
-    id:2, tag:'Recipe Tips', date:'November 28, 2024', emoji:'🍗',
+    id:2, tag:'Recipe Tips', date:'November 28, 2024', emoji:'chicken',
     title:'The Secret Behind Our Perfect Chicken Inasal',
     excerpt:'We share (almost) everything about the marinade that makes our Inasal the #1 requested dish on our menu week after week.',
-    body:`<p>Chicken Inasal is more than just grilled chicken — it's a Negrense classic that has been lovingly adopted by Cebuanos everywhere. The magic is in the marinade.</p><p>Our version uses a blend of lemongrass, kalamansi, vinegar, garlic, and a proprietary mix of spices that we've refined over dozens of batches. The chicken marinates for a minimum of 4 hours — overnight if we're making a big batch.</p><p>The other secret? Basting with annatto-infused oil throughout grilling. This gives the Inasal its signature golden-orange color and smoky aroma that you'll smell from across the street.</p><p>We can't give you the exact recipe (trade secret! 😄), but we can promise that every order is grilled fresh to order. No reheated chicken here.</p>`
+    body:`<p>Chicken Inasal is more than just grilled chicken — it's a Negrense classic that has been lovingly adopted by Cebuanos everywhere. The magic is in the marinade.</p><p>Our version uses a blend of lemongrass, kalamansi, vinegar, garlic, and a proprietary mix of spices that we've refined over dozens of batches. The chicken marinates for a minimum of 4 hours — overnight if we're making a big batch.</p><p>The other secret? Basting with annatto-infused oil throughout grilling. This gives the Inasal its signature golden-orange color and smoky aroma that you'll smell from across the street.</p><p>We can't give you the exact recipe (trade secret!), but we can promise that every order is grilled fresh to order. No reheated chicken here.</p>`
   },
   {
-    id:3, tag:'Community', date:'October 15, 2024', emoji:'🌿',
+    id:3, tag:'Community', date:'October 15, 2024', emoji:'leaf',
     title:'How We Support Local Cebuano Farmers & Suppliers',
     excerpt:'Every ingredient we use tells a story. We only source from trusted local suppliers who share our commitment to quality and freshness.',
     body:`<p>At Czkiervan's, "local" isn't just a marketing word — it's our core philosophy. We buy 100% of our vegetables from wet market vendors and small farms within Cebu City and the nearby municipalities.</p><p>Our pork comes from a family-owned hog farm in Minglanilla. Our native chicken is sourced fresh every morning from a small cooperative in Talisay. Even our calamansi and lemongrass are hand-picked from backyard gardens of trusted suppliers.</p><p>Why does this matter to you? Because fresher ingredients mean better-tasting food. And because every peso you spend at Czkiervan's directly supports real Cebuano families building better lives.</p><p>We are proud to be a community-driven food business. When you order from us, you feed more than just yourself.</p>`
@@ -989,11 +1008,20 @@ function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
 // ═══════════════════════════════════════════
 //  BLOG SECTION RENDER
 // ═══════════════════════════════════════════
+
+function getBlogIcon(e){
+  const icons={
+    'chef':'<svg style="width:52px;height:52px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 017.41 6a5.11 5.11 0 019.18 0A4 4 0 0118 13.87V21H6z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>',
+    'chicken':'<svg style="width:52px;height:52px;color:var(--yellow)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+    'leaf':'<svg style="width:52px;height:52px;color:#4CAF50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16a8 8 0 009.5-7V4s-5 0-8 5a8 8 0 00-1.5 7z"/><path d="M6.5 16c.5-3 2-5 5-6.5"/></svg>'
+  };
+  return icons[e]||icons['chef'];
+}
 function renderBlog(){
   const grid = document.getElementById('blogGrid');
   grid.innerHTML = BLOG_POSTS.map(post => `
     <div class="blog-card fade-up" onclick="openBlogPost(${post.id})">
-      <div class="blog-card-img">${post.emoji}</div>
+      <div class="blog-card-img">${getBlogIcon(post.emoji)}</div>
       <div class="blog-card-body">
         <div class="blog-meta">
           <span class="blog-tag">${post.tag}</span>
@@ -1011,14 +1039,14 @@ function openBlogPost(id){
   const post = BLOG_POSTS.find(p => p.id === id);
   if(!post) return;
   document.getElementById('blogModalContent').innerHTML = `
-    <div style="font-size:52px;margin-bottom:16px">${post.emoji}</div>
+    <div style="margin-bottom:16px">${getBlogIcon(post.emoji)}</div>
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap">
       <span class="blog-tag">${post.tag}</span>
       <span class="blog-date">${post.date}</span>
     </div>
     <div class="blog-modal-title">${post.title}</div>
     <div class="blog-modal-body">${post.body}</div>
-    <button onclick="document.getElementById('blogOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:24px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">← Back to Blog</button>
+    <button onclick="document.getElementById('blogOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:24px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">← Back to Blog</button>
   `;
   document.getElementById('blogOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1092,7 +1120,7 @@ function renderMenu(){
   }
   document.getElementById('countBadge').textContent = items.length;
   if(!items.length){
-    grid.innerHTML = `<div class="no-results"><span class="big-emoji">😔</span>No dishes found for "<b>${searchTerm}</b>"</div>`;
+    grid.innerHTML = `<div class="no-results"><span class="big-emoji"><svg style="width:52px;height:52px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>No dishes found for "<b>${searchTerm}</b>"</div>`;
     return;
   }
   items.forEach(item => {
@@ -1100,14 +1128,14 @@ function renderMenu(){
     const card = document.createElement('div');
     card.className = 'item-card fade-up';
     card.id = 'card-' + item.id;
-    const badge = item.popular ? `<div class="item-popular-badge">🔥 Popular</div>` :
-                  item.isNew ? `<div class="item-new-badge">✨ New</div>` : '';
+    const badge = item.popular ? `<div class="item-popular-badge">HOT</div>` :
+                  item.isNew ? `<div class="item-new-badge">NEW</div>` : '';
     card.innerHTML = `
       <div class="item-img-wrap">
         ${badge}
         ${item.img ? `<img class="item-img" src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
         <div class="item-img-placeholder" style="${item.img ? 'display:none' : 'display:flex'}">
-          <span class="emoji">🍽️</span>
+          <span class="emoji"><svg style="width:36px;height:36px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
           <span>No photo yet</span>
         </div>
       </div>
@@ -1137,7 +1165,7 @@ function addItem(id){
   else cart[id] = {...item, qty:1};
   updateCtrl(id);
   updateCart();
-  showToast('✅ Added: ' + item.name.split(' w/')[0]);
+  showToast('Added: ' + item.name.split(' w/')[0]);
 }
 function decItem(id){
   if(!cart[id]) return;
@@ -1152,7 +1180,7 @@ function clearCart(){
   appliedDiscount = 0;
   renderMenu();
   updateCart();
-  showToast('🗑️ Cart cleared');
+  showToast('Cart cleared');
 }
 function updateCtrl(id){
   const ctrl = document.getElementById('ctrl-' + id);
@@ -1173,14 +1201,14 @@ function applyPromo(code){
 function applyPromoCode(fromDrawer){
   const input = fromDrawer ? document.getElementById('drawerPromoInput') : document.getElementById('promoInput');
   const code = input.value.trim().toUpperCase();
-  if(!code){ showToast('⚠️ Enter a promo code first'); return; }
+  if(!code){ showToast('Enter a promo code first'); return; }
   if(PROMO_CODES[code]){
     appliedPromo = code;
     appliedDiscount = PROMO_CODES[code];
-    showToast('🎉 Promo applied! ' + (appliedDiscount*100) + '% off');
+    showToast('Promo applied! ' + (appliedDiscount*100) + '% off');
     updateCart();
   } else {
-    showToast('❌ Invalid promo code');
+    showToast('Invalid promo code');
   }
 }
 
@@ -1212,14 +1240,14 @@ function updateCart(){
         </div>
         <div class="ci-price">${fmt(i.price * i.qty)}</div>
       </div>`).join('')
-    : '<div class="cart-empty"><div class="icon">🍽️</div><div>Cart is empty!<br/>Start ordering na!</div></div>';
+    : '<div class="cart-empty"><div class="icon"><svg style="width:44px;height:44px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg></div><div>Cart is empty!<br/>Start ordering na!</div></div>';
 
   document.getElementById('sidebarList').innerHTML = cartHTML;
   document.getElementById('drawerList').innerHTML = cartHTML;
 
   ['side','drawer'].forEach(prefix => {
     document.getElementById(prefix + 'Subtotal').textContent = fmt(subtotal);
-    document.getElementById(prefix + 'Delivery').textContent = freeDelivery && totalQty > 0 ? '🎉 FREE' : fmt(delivery);
+    document.getElementById(prefix + 'Delivery').textContent = freeDelivery && totalQty > 0 ? 'FREE' : fmt(delivery);
     document.getElementById(prefix + 'Total').textContent = fmt(total);
     const discRow = document.getElementById(prefix + 'DiscountRow');
     if(discountAmt > 0){
@@ -1270,7 +1298,7 @@ function handleAdminClick(e){
 
 function getCheckoutFormHTML(){
   return `
-    <div class="modal-title">🧾 Complete Your Order</div>
+    <div class="modal-title"><svg style="width:20px;height:20px;color:var(--red2)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Complete Your Order</div>
     <label>Full Name *</label>
     <input type="text" id="custName" placeholder="Juan dela Cruz" autocomplete="name"/>
     <label>Contact Number *</label>
@@ -1284,21 +1312,21 @@ function getCheckoutFormHTML(){
     <label>Payment Method</label>
     <div class="pay-options">
       <div class="pay-option selected" data-pay="Cash on Delivery" onclick="selectPay(this)">
-        <div class="pay-logo">💵</div><div class="pay-name">Cash on Delivery</div><div class="pay-note">Pay when delivered</div>
+        <div class="pay-logo"><svg style="width:22px;height:22px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="pay-name">Cash on Delivery</div><div class="pay-note">Pay when delivered</div>
       </div>
       <div class="pay-option" data-pay="GCash" onclick="selectPay(this)">
-        <div class="pay-logo">📱</div><div class="pay-name">GCash</div><div class="pay-note">Redirect to app</div>
+        <div class="pay-logo"><svg style="width:22px;height:22px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="pay-name">GCash</div><div class="pay-note">Redirect to app</div>
       </div>
       <div class="pay-option" data-pay="Maya" onclick="selectPay(this)">
-        <div class="pay-logo">💳</div><div class="pay-name">Maya</div><div class="pay-note">Redirect to app</div>
+        <div class="pay-logo"><svg style="width:22px;height:22px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div><div class="pay-name">Maya</div><div class="pay-note">Redirect to app</div>
       </div>
       <div class="pay-option" data-pay="PayPal" onclick="selectPay(this)">
-        <div class="pay-logo">🅿️</div><div class="pay-name">PayPal</div><div class="pay-note">Redirect to PayPal</div>
+        <div class="pay-logo"><svg style="width:22px;height:22px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11C4.239 11 2 8.761 2 6c0-2.761 2.239-5 5-5h8c2.761 0 5 2.239 5 5 0 2.761-2.239 5-5 5H7z"/><path d="M7 17c-2.761 0-5-2.239-5-5 0-2.761 2.239-5 5-5"/></svg></div><div class="pay-name">PayPal</div><div class="pay-note">Redirect to PayPal</div>
       </div>
     </div>
     <div class="modal-actions">
       <button class="btn-cancel-modal" onclick="closeModal()">Cancel</button>
-      <button class="btn-order" onclick="placeOrder()">Place Order 🎉</button>
+      <button class="btn-order" onclick="placeOrder()">Place Order</button>
     </div>`;
 }
 
@@ -1317,8 +1345,11 @@ function placeOrder(){
   const email = document.getElementById('custEmail').value.trim();
   const addr = document.getElementById('custAddr').value.trim();
   const notes = document.getElementById('custNotes') ? document.getElementById('custNotes').value.trim() : '';
-  if(!name || !phone || !addr){ showToast('⚠️ Please fill in all required fields'); return; }
-  if(phone.replace(/[\s\-+]/g,'').length < 10){ showToast('⚠️ Enter a valid phone number'); return; }
+  const sName = sanitize(name), sPhone = sanitize(phone), sAddr = sanitize(addr);
+  if(!sName || !sPhone || !sAddr){ showToast('Please fill in all required fields'); return; }
+  if(!validatePhone(sPhone)){ showToast('Enter a valid PH phone number (e.g. 09171234567)'); return; }
+  if(!validateEmail(email)){ showToast('Enter a valid email address'); return; }
+  if(!checkRateLimit()){ return; }
 
   const items = Object.values(cart);
   const subtotal = items.reduce((s,i) => s + i.price * i.qty, 0);
@@ -1334,7 +1365,7 @@ function placeOrder(){
     orderNum, name, phone, email, addr, notes, payment: selectedPay,
     items: items.map(i => ({name:i.name, qty:i.qty, price:i.price})),
     subtotal, delivery, discountAmt, total, promo: appliedPromo,
-    status: 'Pending', time: new Date().toISOString()
+    status: 'Pending', time: new Date().toISOString(), session: SESSION_ID
   };
   orders.push(newOrder);
   saveOrders(orders);
@@ -1357,8 +1388,8 @@ function placeOrder(){
 function showPaymentRedirect(method, total, orderNum, order){
   const overlay = document.getElementById('payRedirectOverlay');
   const configs = {
-    'GCash':{emoji:'📱',color:'#007DC5',webUrl:'https://www.gcash.com',btnClass:'gcash',instructions:'You will be redirected to GCash to complete your payment securely.'},
-    'Maya':{emoji:'💳',color:'#28A745',webUrl:'https://www.maya.ph',btnClass:'maya',instructions:'You will be redirected to Maya to complete your payment securely.'},
+    'GCash':{emoji:'GCash',color:'#007DC5',webUrl:'https://www.gcash.com',btnClass:'gcash',instructions:'You will be redirected to GCash to complete your payment securely.'},
+    'Maya':{emoji:'Maya',color:'#28A745',webUrl:'https://www.maya.ph',btnClass:'maya',instructions:'You will be redirected to Maya to complete your payment securely.'},
     'PayPal':{emoji:'🅿️',color:'#003087',webUrl:'https://www.paypal.com',btnClass:'paypal',instructions:'You will be redirected to PayPal to complete your payment securely.'}
   };
   const c = configs[method];
@@ -1387,7 +1418,7 @@ function confirmPayment(orderNum){
     const idx = orders.findIndex(o => o.orderNum === orderNum);
     if(idx !== -1){ orders[idx].status = 'Preparing'; saveOrders(orders); }
     document.getElementById('payRedirectOverlay').classList.remove('open');
-    showToast('💳 Payment processing — Thank you!');
+    showToast('Payment processing — Thank you!');
   }, 800);
 }
 
@@ -1397,22 +1428,22 @@ function confirmPayment(orderNum){
 function showSuccessModal(order, orderNum, orderTime){
   document.getElementById('modalContent').innerHTML = `
     <div class="success-modal">
-      <div class="success-icon">🎉</div>
+      <div class="success-icon"><svg style="width:64px;height:64px;color:var(--red)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
       <h3>Order Placed!</h3>
       <div class="order-num">Order #${orderNum}</div>
       <p>Salamat, <b>${order.name}</b>!<br/>Your food is being prepared na!</p>
       <div class="order-summary-box">
         <div style="font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;margin-bottom:12px">Order Summary</div>
         ${order.items.map(i => `<div class="order-sum-row"><span>${i.name.split(' w/')[0]} ×${i.qty}</span><span style="color:var(--yellow)">${fmt(i.price*i.qty)}</span></div>`).join('')}
-        <div class="order-sum-row" style="color:var(--muted)"><span>Delivery</span><span>${order.delivery===0?'🎉 FREE':fmt(order.delivery)}</span></div>
+        <div class="order-sum-row" style="color:var(--muted)"><span>Delivery</span><span>${order.delivery===0?'FREE':fmt(order.delivery)}</span></div>
         ${order.discountAmt > 0 ? `<div class="order-sum-row" style="color:#4CAF50"><span>Promo (${order.promo})</span><span>-${fmt(order.discountAmt)}</span></div>` : ''}
         <div class="order-sum-row order-sum-total"><span>Total</span><span>${fmt(order.total)}</span></div>
       </div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:700">📍 ${order.addr}</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:18px;font-weight:700">💳 ${order.payment} · 🕐 ${orderTime}</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:700"><svg style='width:12px;height:12px;margin-right:4px' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/><circle cx='12' cy='10' r='3'/></svg> ${order.addr}</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:18px;font-weight:700"><svg style='width:12px;height:12px;margin-right:4px' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><rect x='1' y='4' width='22' height='16' rx='2' ry='2'/><line x1='1' y1='10' x2='23' y2='10'/></svg> ${order.payment}</div>
       <div style="display:flex;gap:10px">
         <button class="btn-cancel-modal" style="flex:1" onclick="closeModal()">Close</button>
-        <button class="btn-order" style="flex:2" onclick="closeModal();trackOrder('${orderNum}')">Track Order 🚴</button>
+        <button class="btn-order" style="flex:2" onclick="closeModal();trackOrder('${orderNum}')">Track Order</button>
       </div>
     </div>`;
   document.getElementById('modalOverlay').classList.add('open');
@@ -1422,7 +1453,13 @@ function showSuccessModal(order, orderNum, orderTime){
 //  ORDER TRACKING
 // ═══════════════════════════════════════════
 const ORDER_STATUSES = ['Pending','Preparing','On the Way','Delivered'];
-const STATUS_ICONS = {'Pending':'⏳','Preparing':'👨‍🍳','On the Way':'🚴','Delivered':'✅','Cancelled':'❌'};
+const STATUS_ICONS = {
+  'Pending':'<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  'Preparing':'<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+  'On the Way':'<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 100-2 1 1 0 000 2zm-3 11.5V14l-3-3 4-3 2 3h2"/></svg>',
+  'Delivered':'<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+  'Cancelled':'<svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+};
 
 function trackOrder(orderNum){
   const orders = getOrders();
@@ -1451,19 +1488,19 @@ function renderTrackModal(order){
     <h2>Track Order #${order.orderNum}</h2>
     <div style="background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:20px">
       <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px">${order.name}</div>
-      <div style="font-size:12px;color:var(--muted);font-weight:700">📍 ${order.addr}</div>
-      ${order.notes ? `<div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:3px">📝 ${order.notes}</div>` : ''}
+      <div style="font-size:12px;color:var(--muted);font-weight:700"><svg style='width:12px;height:12px;margin-right:4px' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/><circle cx='12' cy='10' r='3'/></svg> ${order.addr}</div>
+      ${order.notes ? `<div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:3px"> ${order.notes}</div>` : ''}
     </div>
     <div class="track-status-steps">${steps}</div>
     <button class="cancel-order-btn" ${!isCancellable ? 'disabled' : `onclick="cancelOrder('${order.orderNum}')"`}>
-      ${order.status === 'Cancelled' ? '❌ Order Cancelled' : '🚫 Cancel Order'}
+      ${order.status === 'Cancelled' ? 'Order Cancelled' : 'Cancel Order'}
     </button>
     <div class="cancel-note">
-      ${isOnRoad ? '⚠️ Cannot cancel — order is already on the way' :
+      ${isOnRoad ? 'Cannot cancel — order is already on the way' :
         order.status === 'Cancelled' ? 'This order has been cancelled' :
         '* You can cancel while order is Pending or Preparing'}
     </div>
-    <button onclick="document.getElementById('trackOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:14px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:11px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Close</button>
+    <button onclick="document.getElementById('trackOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:14px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:11px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Close</button>
   `;
 }
 function getRelativeTime(isoTime, step){
@@ -1477,13 +1514,13 @@ function cancelOrder(orderNum){
   if(idx === -1) return;
   const o = orders[idx];
   if(o.status === 'On the Way' || o.status === 'Delivered'){
-    showToast('⚠️ Cannot cancel — order is already on the way!');
+    showToast('Cannot cancel — order is already on the way!');
     return;
   }
   orders[idx].status = 'Cancelled';
   saveOrders(orders);
   renderTrackModal(orders[idx]);
-  showToast('❌ Order #' + orderNum + ' has been cancelled');
+  showToast('Order #' + orderNum + ' cancelled');
 }
 
 // ═══════════════════════════════════════════
@@ -1491,7 +1528,7 @@ function cancelOrder(orderNum){
 // ═══════════════════════════════════════════
 function openMyOrders(){
   const orders = getOrders().reverse();
-  if(!orders.length){ showToast('📋 No orders yet — start ordering!'); return; }
+  if(!orders.length){ showToast('No orders yet — start ordering!'); return; }
   if(orders.length === 1){ trackOrder(orders[0].orderNum); return; }
   document.getElementById('trackContent').innerHTML = `
     <h2>My Orders</h2>
@@ -1505,7 +1542,7 @@ function openMyOrders(){
           <div style="font-size:12px;color:var(--muted);font-weight:700">${o.items.length} item(s) · ${fmt(o.total)} · ${new Date(o.time).toLocaleDateString('en-PH')}</div>
         </div>`).join('')}
     </div>
-    <button onclick="document.getElementById('trackOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:18px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:11px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif">Close</button>
+    <button onclick="document.getElementById('trackOverlay').classList.remove('open');document.body.style.overflow=''" style="margin-top:18px;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:11px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif">Close</button>
   `;
   document.getElementById('trackOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1564,7 +1601,8 @@ function getOrdersPanel(){
     </div>
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap">
       <input class="admin-search" style="margin-bottom:0;flex:1;min-width:180px" placeholder="Search by order # or customer name..." oninput="filterAdminOrders(this.value)"/>
-      <button onclick="exportOrdersCSV()" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif;white-space:nowrap">📥 Export CSV</button>
+      <button onclick="exportOrdersCSV()" style="background:var(--yellow);color:#5a3e00;border:none;border-radius:8px;padding:10px 16px;font-size:12px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif;white-space:nowrap"><svg style='width:13px;height:13px;margin-right:4px' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/><polyline points='7 10 12 15 17 10'/><line x1='12' y1='15' x2='12' y2='3'/></svg>Export CSV</button>
+      <button onclick="exportOrdersJSON()" style="background:var(--bg3);color:var(--muted);border:1.5px solid var(--border);border-radius:8px;padding:10px 16px;font-size:12px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif;white-space:nowrap">Export JSON</button>
     </div>
     <div class="admin-filter-row">
       ${statuses.map(s => `<button class="admin-filter-btn${adminFilter===s?' active':''}" onclick="setAdminFilter('${s}')">${s}</button>`).join('')}
@@ -1602,6 +1640,7 @@ function getAdminActions(o){
   if(next) btns += `<button class="admin-action-btn advance" onclick="adminAdvanceOrder('${o.orderNum}','${next}')">→ ${next}</button>`;
   if(o.status !== 'Delivered' && o.status !== 'Cancelled')
     btns += `<button class="admin-action-btn" onclick="adminCancelOrder('${o.orderNum}')">Cancel</button>`;
+  btns += `<button class="admin-action-btn" onclick="printOrder('${o.orderNum}')" title="Print receipt">Print</button>`;
   return btns || '<span style="font-size:11px;color:var(--muted)">—</span>';
 }
 function adminAdvanceOrder(orderNum, newStatus){
@@ -1609,7 +1648,7 @@ function adminAdvanceOrder(orderNum, newStatus){
   const idx = orders.findIndex(o => o.orderNum === orderNum);
   if(idx !== -1){ orders[idx].status = newStatus; saveOrders(orders); }
   renderAdminTab(adminCurrentTab);
-  showToast('✅ Order ' + orderNum + ' → ' + newStatus);
+  showToast('Order ' + orderNum + ' → ' + newStatus);
 }
 function adminCancelOrder(orderNum){
   if(!confirm('Cancel order ' + orderNum + '?')) return;
@@ -1617,7 +1656,7 @@ function adminCancelOrder(orderNum){
   const idx = orders.findIndex(o => o.orderNum === orderNum);
   if(idx !== -1){ orders[idx].status = 'Cancelled'; saveOrders(orders); }
   renderAdminTab(adminCurrentTab);
-  showToast('❌ Order ' + orderNum + ' cancelled');
+  showToast('Cancelled: Order ' + orderNum + ' cancelled');
 }
 function setAdminFilter(f){ adminFilter = f; renderAdminTab('orders'); }
 function filterAdminOrders(query){
@@ -1641,7 +1680,7 @@ function exportOrdersCSV(){
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   a.download = 'czkiervans_orders_' + Date.now() + '.csv';
   a.click();
-  showToast('📥 Orders exported!');
+  showToast('Orders exported!');
 }
 
 function getDeliveriesPanel(){
@@ -1660,8 +1699,8 @@ function getDeliveriesPanel(){
           <div>
             <div style="font-weight:900;color:var(--yellow);margin-bottom:4px">${o.orderNum}</div>
             <div style="font-weight:800;color:var(--text)">${o.name} · ${o.phone}</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:3px">📍 ${o.addr}</div>
-            ${o.notes ? `<div style="font-size:12px;color:var(--muted);margin-top:2px">📝 ${o.notes}</div>` : ''}
+            <div style="font-size:12px;color:var(--muted);margin-top:3px"><svg style='width:12px;height:12px;margin-right:3px' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/><circle cx='12' cy='10' r='3'/></svg> ${o.addr}</div>
+            ${o.notes ? `<div style="font-size:12px;color:var(--muted);margin-top:2px"> ${o.notes}</div>` : ''}
           </div>
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
             <span class="status-badge ${statusClass(o.status)}">${o.status}</span>
@@ -1670,7 +1709,7 @@ function getDeliveriesPanel(){
             ${o.status==='On the Way' ? `<button class="admin-action-btn advance" onclick="adminAdvanceOrder('${o.orderNum}','Delivered');renderAdminTab('deliveries')">Mark Delivered ✓</button>` : ''}
           </div>
         </div>`).join('')}
-    </div>` : `<div style="text-align:center;padding:40px;color:var(--muted);font-weight:700">🎉 No active deliveries right now</div>`}`;
+    </div>` : `<div style="text-align:center;padding:40px;color:var(--muted);font-weight:700">No active deliveries right now</div>`}`;
 }
 
 function getAnalyticsPanel(){
@@ -1697,7 +1736,7 @@ function getAnalyticsPanel(){
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex-wrap:wrap">
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:20px">
-        <div style="font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px">🔥 Top Selling Items</div>
+        <div style="font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px">Top Selling Items</div>
         ${topItems.length ? topItems.map(([name, qty], i) => `
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
             <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--yellow);width:24px;font-weight:900">${i+1}</div>
@@ -1709,7 +1748,7 @@ function getAnalyticsPanel(){
           </div>`).join('') : '<div style="color:var(--muted)">No data yet</div>'}
       </div>
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:20px">
-        <div style="font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px">💳 Payment Methods</div>
+        <div style="font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px">Payment Methods</div>
         ${Object.keys(paymentCounts).length ? Object.entries(paymentCounts).map(([method, count]) => `
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
             <div style="font-size:13px;font-weight:800;color:var(--text)">${method}</div>
@@ -1731,7 +1770,7 @@ function getMenuPanel(){
         <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--white);font-weight:900">Menu Management</div>
         <div style="font-size:13px;color:var(--muted);font-weight:700">${cats.length} categories · ${totalItems} items</div>
       </div>
-      <button onclick="showToast('Menu editing coming soon! 🚧')" style="background:var(--red);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif">+ Add Item</button>
+      <button onclick="showToast('Menu editing coming soon!')" style="background:var(--red);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Montserrat',sans-serif">+ Add Item</button>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px">
       ${cats.map(cat => `
@@ -1760,21 +1799,21 @@ function getPromosPanel(){
             <div class="admin-promo-val">${(discount*100).toFixed(0)}% discount</div>
             <div style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:700">Used ${usedCount} time${usedCount!==1?'s':''}</div>
             <div style="margin-top:10px;display:flex;gap:6px">
-              <button onclick="copyPromoCode('${code}')" style="flex:1;background:var(--yellow);color:#5a3e00;border:none;border-radius:7px;padding:6px;font-size:11px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif">Copy</button>
-              <button onclick="showToast('Promo editing coming soon! 🚧')" style="flex:1;background:transparent;border:1.5px solid var(--border);border-radius:7px;padding:6px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Nunito',sans-serif">Edit</button>
+              <button onclick="copyPromoCode('${code}')" style="flex:1;background:var(--yellow);color:#5a3e00;border:none;border-radius:7px;padding:6px;font-size:11px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif">Copy</button>
+              <button onclick="showToast('Promo editing coming soon!')" style="flex:1;background:transparent;border:1.5px solid var(--border);border-radius:7px;padding:6px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;font-family:'Montserrat',sans-serif">Edit</button>
             </div>
           </div>`;
       }).join('')}
-      <div class="admin-promo-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer" onclick="showToast('Add promo coming soon! 🚧')">
-        <div style="font-size:28px">➕</div>
+      <div class="admin-promo-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer" onclick="showToast('Add promo coming soon!')">
+        <div><svg style="width:28px;height:28px;color:var(--muted)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         <div style="font-size:13px;font-weight:800;color:var(--muted)">Add New Promo</div>
       </div>
     </div>
     <div style="margin-top:24px;background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:20px">
       <div style="font-size:13px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px">Test a Promo Code</div>
       <div style="display:flex;gap:8px">
-        <input id="testPromoInput" type="text" placeholder="Enter code to test..." style="flex:1;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;font-family:'Nunito',sans-serif;font-weight:700;color:var(--text);outline:none"/>
-        <button onclick="testPromoAdmin()" style="background:var(--red);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Nunito',sans-serif">Test</button>
+        <input id="testPromoInput" type="text" placeholder="Enter code to test..." style="flex:1;background:var(--bg2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);outline:none"/>
+        <button onclick="testPromoAdmin()" style="background:var(--red);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:900;cursor:pointer;font-family:'Montserrat',sans-serif">Test</button>
       </div>
       <div id="testPromoResult" style="margin-top:10px;font-size:13px;font-weight:700;color:var(--muted)"></div>
     </div>`;
@@ -1782,7 +1821,7 @@ function getPromosPanel(){
 
 function copyPromoCode(code){
   if(navigator.clipboard){
-    navigator.clipboard.writeText(code).then(() => showToast('📋 ' + code + ' copied!'));
+    navigator.clipboard.writeText(code).then(() => showToast(code + ' copied!'));
   } else {
     showToast('Code: ' + code);
   }
@@ -1793,10 +1832,10 @@ function testPromoAdmin(){
   if(!code){ result.textContent = ''; return; }
   if(PROMO_CODES[code]){
     result.style.color = '#4CAF50';
-    result.textContent = '✅ Valid! Gives ' + (PROMO_CODES[code]*100) + '% off';
+    result.textContent = 'Valid: ' + (PROMO_CODES[code]*100) + '% off';
   } else {
     result.style.color = '#f44336';
-    result.textContent = '❌ Invalid promo code';
+    result.textContent = 'Invalid promo code';
   }
 }
 
@@ -1807,22 +1846,22 @@ function getSettingsPanel(){
     <div style="display:flex;flex-direction:column;gap:14px">
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div>
-          <div style="font-size:14px;font-weight:900;color:var(--text)">🌙 Dark Mode</div>
+          <div style="font-size:14px;font-weight:900;color:var(--text)">Dark Mode</div>
           <div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:3px">Toggle between dark and light themes</div>
         </div>
-        <button onclick="toggleTheme();renderAdminTab('settings')" style="background:${isDark?'var(--red)':'var(--border)'};border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:900;color:${isDark?'#fff':'var(--muted)'};cursor:pointer;font-family:'Nunito',sans-serif;transition:.2s">
-          ${isDark?'🌙 Dark ON':'☀️ Light ON'}
+        <button onclick="toggleTheme();renderAdminTab('settings')" style="background:${isDark?'var(--red)':'var(--border)'};border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:900;color:${isDark?'#fff':'var(--muted)'};cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s">
+          ${isDark?'Dark':'Light'}
         </button>
       </div>
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
         <div>
-          <div style="font-size:14px;font-weight:900;color:var(--text)">🗑️ Clear All Orders</div>
+          <div style="font-size:14px;font-weight:900;color:var(--text)">Clear All Orders</div>
           <div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:3px">Permanently delete all order data</div>
         </div>
-        <button onclick="if(confirm('Clear ALL order data? This cannot be undone.')){localStorage.removeItem('czkiervan_orders');renderAdminTab('settings');showToast('🗑️ All orders cleared');}" style="background:rgba(244,67,54,0.15);border:1.5px solid rgba(244,67,54,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:900;color:#f44336;cursor:pointer;font-family:'Nunito',sans-serif">Clear Data</button>
+        <button onclick="if(confirm('Clear ALL order data? This cannot be undone.')){localStorage.removeItem('czkiervan_orders');renderAdminTab('settings');showToast('All orders cleared');}" style="background:rgba(244,67,54,0.15);border:1.5px solid rgba(244,67,54,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:900;color:#f44336;cursor:pointer;font-family:'Montserrat',sans-serif">Clear Data</button>
       </div>
       <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:18px">
-        <div style="font-size:14px;font-weight:900;color:var(--text);margin-bottom:8px">📊 Data Summary</div>
+        <div style="font-size:14px;font-weight:900;color:var(--text);margin-bottom:8px">Data Summary</div>
         <div style="font-size:13px;color:var(--muted);font-weight:700">Total orders stored: <b style="color:var(--text)">${getOrders().length}</b></div>
         <div style="font-size:13px;color:var(--muted);font-weight:700;margin-top:4px">Storage used: <b style="color:var(--text)">${(JSON.stringify(getOrders()).length/1024).toFixed(1)} KB</b></div>
       </div>
@@ -1842,8 +1881,7 @@ function isToday(isoTime){
   return d.getDate()===t.getDate() && d.getMonth()===t.getMonth() && d.getFullYear()===t.getFullYear();
 }
 function getCatEmoji(cat){
-  const map = {Filipino:'🍖',Noodles:'🍜',Western:'🍔','Fried Specials':'🍗',Pasta:'🍝','Rice Bowls':'🍚',Sides:'🥗',Pizza:'🍕',Drinks:'🥤',Desserts:'🍮'};
-  return map[cat]||'🍽️';
+  return '';
 }
 
 // ═══════════════════════════════════════════
@@ -1909,6 +1947,121 @@ document.addEventListener('keydown', e => {
 // ═══════════════════════════════════════════
 //  INIT
 // ═══════════════════════════════════════════
+// ═══════════════════════════════════════════
+//  BACKEND IMPROVEMENTS v2.0
+// ═══════════════════════════════════════════
+
+// ── SCHEMA VERSION & MIGRATION ──
+const DB_VERSION = 2;
+(function migrateDB(){
+  const storedVer = parseInt(localStorage.getItem('czk_db_ver') || '1');
+  if(storedVer < DB_VERSION){
+    // Future: migrate schema here
+    localStorage.setItem('czk_db_ver', DB_VERSION);
+  }
+})();
+
+// ── INPUT SANITIZATION ──
+function sanitize(str){
+  return str.replace(/<[^>]*>/g,'').trim().substring(0,200);
+}
+
+// ── PHONE VALIDATION (PH numbers) ──
+function validatePhone(phone){
+  const cleaned = phone.replace(/[\s\-+()]/g,'');
+  // PH format: 09XXXXXXXXX or +639XXXXXXXXX
+  return /^(09|639)\d{9}$/.test(cleaned) || /^\d{7,12}$/.test(cleaned);
+}
+
+// ── EMAIL VALIDATION ──
+function validateEmail(email){
+  return !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// ── RATE LIMITING (max 3 orders per minute) ──
+function checkRateLimit(){
+  const key = 'czk_rate_' + Math.floor(Date.now()/60000);
+  const prev = parseInt(localStorage.getItem(key) || '0');
+  if(prev >= 3){
+    showToast('Too many orders. Please wait a moment.');
+    return false;
+  }
+  localStorage.setItem(key, prev + 1);
+  // Clean old rate limit keys
+  Object.keys(localStorage).filter(k => k.startsWith('czk_rate_') && k !== key).forEach(k => localStorage.removeItem(k));
+  return true;
+}
+
+// ── SESSION ANALYTICS ──
+const SESSION_ID = sessionStorage.getItem('czk_session') || (() => {
+  const id = 'S' + Date.now().toString(36).toUpperCase();
+  sessionStorage.setItem('czk_session', id);
+  return id;
+})();
+
+// Track page events (lightweight, no external dependencies)
+const analytics = {
+  events: JSON.parse(sessionStorage.getItem('czk_events') || '[]'),
+  track(event, data){
+    this.events.push({event, data, t: Date.now()});
+    sessionStorage.setItem('czk_events', JSON.stringify(this.events.slice(-50)));
+  }
+};
+analytics.track('page_view', {cat: currentCat});
+
+// ── EXPORT JSON ──
+function exportOrdersJSON(){
+  const orders = getOrders();
+  if(!orders.length){ showToast('No orders to export'); return; }
+  const a = document.createElement('a');
+  a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(orders, null, 2));
+  a.download = 'czkiervans_orders_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  showToast('Orders exported as JSON');
+}
+
+// ── KEYBOARD SHORTCUT HINTS ──
+// Ctrl+K = search (already implemented)
+// Ctrl+Shift+A = admin panel
+document.addEventListener('keydown', e => {
+  if((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'A'){
+    e.preventDefault();
+    openAdmin();
+  }
+});
+
+// ── PRINT ORDER RECEIPT ──
+function printOrder(orderNum){
+  const order = getOrders().find(o => o.orderNum === orderNum);
+  if(!order) return;
+  const w = window.open('','_blank','width=400,height=600');
+  w.document.write(`<!DOCTYPE html><html><head><title>Receipt ${order.orderNum}</title>
+    <style>
+      body{font-family:'Montserrat',sans-serif;padding:24px;max-width:380px;margin:0 auto;color:#111}
+      h1{font-size:20px;margin-bottom:4px}
+      .sub{font-size:12px;color:#666;margin-bottom:16px}
+      table{width:100%;border-collapse:collapse;margin:12px 0}
+      td{padding:5px 0;font-size:13px;border-bottom:1px solid #eee}
+      td:last-child{text-align:right;font-weight:700}
+      .total{font-size:15px;font-weight:900;border-top:2px solid #111;border-bottom:none}
+      @media print{body{padding:0}}
+    </style></head><body>
+    <h1>Czkiervan's Receipt</h1>
+    <div class="sub">${order.orderNum} &nbsp;·&nbsp; ${new Date(order.time).toLocaleString('en-PH')}</div>
+    <div style="font-size:13px"><b>${order.name}</b><br/>${order.phone}<br/>${order.addr}</div>
+    <table>
+      ${order.items.map(i => `<tr><td>${i.name} &times;${i.qty}</td><td>&#8369;${(i.price*i.qty).toFixed(2)}</td></tr>`).join('')}
+      <tr><td>Delivery</td><td>${order.delivery===0?'FREE':'&#8369;'+order.delivery.toFixed(2)}</td></tr>
+      ${order.discountAmt>0?`<tr><td>Discount (${order.promo})</td><td>-&#8369;${order.discountAmt.toFixed(2)}</td></tr>`:''}
+      <tr class="total"><td>Total</td><td>&#8369;${order.total.toFixed(2)}</td></tr>
+    </table>
+    <div style="font-size:12px;color:#666;margin-top:12px">Payment: ${order.payment}</div>
+    <div style="font-size:11px;color:#999;margin-top:20px;text-align:center">Salamat! Padayon!</div>
+    <script>window.print();window.onafterprint=()=>window.close();<\/script>
+  </body></html>`);
+  w.document.close();
+}
+
 renderMenu();
 updateCart();
 renderBlog();
@@ -1919,3 +2072,4 @@ document.getElementById('floatCart').style.pointerEvents = 'none';
 </script>
 </body>
 </html>
+
