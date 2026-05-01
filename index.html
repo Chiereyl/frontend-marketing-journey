@@ -1057,7 +1057,9 @@
       const items = menuData[activeCategory] || [];
       menuGrid.innerHTML = items.map((item, idx) => `
         <div class="menu-card">
-          <div class="card-image">${item.img}</div>
+    <div class="card-image">
+  <img src="${item.img}" alt="${item.name}">
+</div>
           <div class="card-content">
             <h3 class="card-name">${item.name}</h3>
             <div class="card-footer">
