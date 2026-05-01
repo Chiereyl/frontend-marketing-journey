@@ -855,7 +855,7 @@
         { id: 16, name: 'Menudo w/ Rice', price: 135, img: 'images/images-menudo.jpg.jpeg' },
         { id: 17, name: 'Caldereta w/ Rice', price: 150, img: 'images/images-caldereta.jpg.jpeg' },
         { id: 18, name: 'Fried Chicken Filipino Style w/ Rice', price: 140, img: 'images/images-fried chicken.jpg.jpeg' },
-        { id: 19, name: 'Daing na Bangus w/ Rice', price: 145, img: 'images/images-daing-na-bangus.jpg' },.jpeg
+        { id: 19, name: 'Daing na Bangus w/ Rice', price: 145, img: 'images/images-daing-na-bangus.jpg.jpeg' },
         { id: 20, name: 'Lumpiang Shanghai w/ Rice', price: 120, img: 'images/images-lumpiang-shanghai.jpg.webp' },
       ],
       'Noodles': [
@@ -1058,15 +1058,6 @@
       menuGrid.innerHTML = items.map((item, idx) => `
         <div class="menu-card">
     <div class="card-image">.
-    card-image {
-  height: 140px;
-  overflow: hidden;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
   <img src="${item.img}" alt="${item.name}">
 </div>
